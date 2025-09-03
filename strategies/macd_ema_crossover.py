@@ -30,6 +30,17 @@ def generate_signal(df):
         return "PUT"
     else:
         return "NO TRADE"
+    if len(df) >= hold_period:
+        exit_price = df['Close'].iloc[-hold_period]
+    else:
+        exit_price = entry_price  # fallback
+
+    return {
+        "signal": signal,
+        "entry_price": entry_price,
+        "exit_price": exit_price
+    }
+
 
 if __name__ == "__main__":
     df = fetch_data()
