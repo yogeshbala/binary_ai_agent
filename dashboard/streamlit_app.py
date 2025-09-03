@@ -1,9 +1,10 @@
-
-import streamlit as st
-import pandas as pd
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from utils.main import run_all_strategies
+import streamlit as st
+import pandas as pd
 
 from utils.main import run_all_strategies
 
